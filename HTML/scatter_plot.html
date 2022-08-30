@@ -17,27 +17,44 @@
     
     <script>
 
-      // References @FreeCodeCamp
+      const dataset = [ 
+                        [5, 20], 
+                        [480, 90],  
+                        [250, 50],  
+                        [100, 33], 
+                        [330, 95], 
+                        [410, 12],  
+                        [475, 44],  
+                        [25, 67],  
+                        [85, 21],  
+                        [220, 88] 
+                      ]; 
 
-    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9, 44, 15, 25];
-
-    const w = 500;
-    const h = 100;
+    const w = 550;
+    const h = 150;
 
     const svg = d3.select("body")
                   .append("svg")
                   .attr("width", w)
                   .attr("height", h);
 
-    svg.selectAll("rect")
+    svg.selectAll("circle")
        .data(dataset)
        .enter()
-       .append("rect")
-       .attr("x", (d, i) => i * (w / dataset.length))
-       .attr("y", (d, i) => h - 4 * d)
-       .attr("width", 35)
-       .attr("height",(d, i) => 4 * d)
-       .attr("fill","navy")
+       .append("circle")
+       .attr("cx", (d, i) => d[0])
+       .attr("cy", (d) => h - d[1])
+       .attr("r", 5)
+       .attr("fill","slategrey")
+       .attr("fill", function(d) {if(d[0] == 410){ return "red"}});
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .attr("x", (d) => d[0] + 5)
+       .attr("y", (d) => h - d[1])
+       .text((d) => (d[0] + ", " + d[1]));
 
   </script>
 </body>
