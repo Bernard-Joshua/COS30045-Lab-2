@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Data Visualisation" />
+    <meta name="keywords" content="HTML, CSS, D3" />
+    <meta name="author" content="Bernard Joshua" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/styles.css" />
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="/Scripts/loading_csv.js"></script>
+
+    <title>Task 2.2 Drawing With Data - Loading From CSV</title>
+  </head>
+  <body>
+    <h1>Data Visualisation Journey Begins Here</h1>
+    
+    <script>
+
+      // References @FreeCodeCamp
+
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9, 44, 15, 25];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * (w / dataset.length))
+       .attr("y", (d, i) => h - 4 * d)
+       .attr("width", 35)
+       .attr("height",(d, i) => 4 * d)
+       .attr("fill","navy")
+
+  </script>
+</body>
+    </script>
+
+    <footer>
+      <a href="/HTML/scatter_plot.html">COS30045 Data Visualisation</a>
+      <p>Semester 2, 2022</p>
+    </footer>
+  </body>
+</html>
