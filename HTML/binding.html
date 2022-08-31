@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Data Visualisation" />
-    <meta name="keywords" content="HTML, CSS, D3" />
-    <meta name="author" content="Bernard Joshua" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/CSS/styles.css" />
-    <script src="//d3js.org/d3.v3.min.js"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Data Visualisation" />
+		<meta name="keywords" content="HTML, CSS, D3" />
+		<meta name="author" content="Bernard Joshua" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/CSS/styles.css" />
+		<script src="//d3js.org/d3.v3.min.js"></script>
 
-    <title>Task 2.1 D3 Binding Data</title>
-  </head>
-  <body>
-    <h1>Data Visualisation Journey Begins Here</h1>
+		<title>Task 2.1 D3 Binding Data</title>
+	</head>
+	<body>
+		<h1>Data Visualisation Journey Begins Here</h1>
 
-    <script>
-      var dataset = [14, 5, 26, 23, 9];
+		<script>
+			var dataset = [14, 5, 26, 23, 9]; // Array of data.
 
-      d3.select("body")
-        .selectAll("p")
-        .data(dataset)
-        .enter()
-        .append("p")
-        .text(function (d, i) {
-          if (d > 9) {
-            return "Warning: Bernard has watched " + d + " dog videos today !";
-          }
-          return "Bernard has watched " + d + " dog videos today !";
-        })
-        .style("color", function (d) {
-          if (d > 9) {
-            return "red";
-          } else {
-            return "black";
-          }
-        });
-    </script>
+			// Dynamic Data with D3.
+			d3.select("body")
+				.selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text(function (d, i) {
+					if (d > 9) {
+						return (
+							"Warning: Bernard has watched " +
+							d +
+							" dog videos today !"
+						);
+					}
+					return "Bernard has watched " + d + " dog videos today !";
+				})
+				.style("color", function (d) {
+					if (d > 9) {
+						return "red";
+					} else {
+						return "black";
+					}
+				});
+		</script>
 
-    <footer>
-      <a href="/HTML/bar_chart.html">COS30045 Data Visualisation</a>
-      <p>Semester 2, 2022</p>
-    </footer>
-  </body>
+		<footer>
+			<a href="/HTML/bar_chart.html">COS30045 Data Visualisation</a>
+			<p>Semester 2, 2022</p>
+		</footer>
+	</body>
 </html>
