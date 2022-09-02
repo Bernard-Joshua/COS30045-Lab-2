@@ -23,14 +23,16 @@
 
 			// Setting height and width.
 			const w = 500;
-			const h = 100;
+			const h = 200;
 
+			// Dynamically creating "SVG's" using d3.
 			const svg = d3
 				.select("body")
 				.append("svg")
 				.attr("width", w)
 				.attr("height", h);
 
+			// Making several rectangles using the dataset
 			svg.selectAll("rect")
 				.data(dataset)
 				.enter()
@@ -40,6 +42,18 @@
 				.attr("width", 35)
 				.attr("height", (d, i) => 4 * d)
 				.attr("fill", "navy");
+
+
+			// Adding the Labels.
+			svg.selectAll("text")
+				.data(dataset)
+				.enter()
+				.append("text")
+				.attr("x", (d, i) => i * (w / dataset.length))
+				.attr("y", (d, i) => h - 4 * d)
+				.text((d) => d);
+				
+
 		</script>
 
 		<footer>

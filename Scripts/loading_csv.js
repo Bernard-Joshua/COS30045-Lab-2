@@ -8,7 +8,7 @@ d3.csv("/Data/wombats.csv", function (data) {
 
 function barChart(dataset) {
 	const w = 500;
-	const h = 100;
+	const h = 200;
 
 	const svg = d3
 		.select("#chart") // Reference the id of the HTML element not the body.
@@ -25,4 +25,14 @@ function barChart(dataset) {
 		.attr("width", 35)
 		.attr("height", (d, i) => 4 * d.wombats)
 		.attr("fill", "navy");
+		
+
+		// Adding the Labels.
+		svg.selectAll("text")
+		.data(dataset)
+		.enter()
+		.append("text")
+		.attr("x", (d, i) => i * (w / dataset.length))
+		.attr("y", (d, i) => h - 4 * d.wombats)
+		.text((d) => d.wombats);
 }
