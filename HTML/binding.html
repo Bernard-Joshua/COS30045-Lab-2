@@ -19,13 +19,13 @@
 			var dataset = [14, 5, 26, 23, 9]; // Array of data.
 
 			// Dynamic Data with D3.
-			d3.select("body")
+			d3.select("body")		// Selects the body of the HTML document.
 				.selectAll("p")
-				.data(dataset)
+				.data(dataset)   // Sets the data to the array created before.
 				.enter()
-				.append("p")
-				.text(function (d, i) {
-					if (d > 9) {
+				.append("p")		// Adds the Paragraph to the body.
+				.text(function (d, i) {			// Function to add different text to the pargraph.
+					if (d > 9) {								
 						return (
 							"Warning: Bernard has watched " +
 							d +
@@ -34,13 +34,14 @@
 					}
 					return "Bernard has watched " + d + " dog videos today !";
 				})
-				.style("color", function (d) {
+				.style("color", function (d) {  // Function to add different color to the pargraph.
 					if (d > 9) {
 						return "red";
 					} else {
 						return "black";
 					}
 				});
+
 		</script>
 
 		<footer>
